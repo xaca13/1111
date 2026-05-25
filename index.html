@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手機訂單處理人員 | 1111人力銀行</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;background:#f0f4fa;color:#0f1c2e;line-height:1.6;overflow-x:hidden}
+
+/* HERO */
+.hero{background:#0D3E99;padding:48px 24px 52px;position:relative;overflow:hidden;text-align:center}
+.hero-circle1{position:absolute;top:-80px;right:-60px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,0.06)}
+.hero-circle2{position:absolute;bottom:-60px;left:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.05)}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,197,24,0.18);border:1px solid rgba(245,197,24,0.5);color:#F5C518;font-size:13px;font-weight:700;padding:5px 16px;border-radius:100px;margin-bottom:20px;letter-spacing:.04em}
+.dot{width:8px;height:8px;border-radius:50%;background:#F5C518;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:44px;font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:6px}
+.hero h1 span{color:#F5C518;display:block}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.82);margin-bottom:22px}
+.hero-sub strong{color:#fff;font-weight:700}
+
+/* HERO FEATURE ROW */
+.hero-feats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.hero-feat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:6px 14px;font-size:13px;color:#fff;font-weight:500}
+
+/* CTA BUTTON */
+.btn-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:360px;margin:0 auto;background:#E01010;color:#fff;font-family:'Noto Sans TC',sans-serif;font-size:19px;font-weight:900;padding:18px 24px;border-radius:100px;text-decoration:none;letter-spacing:.04em;position:relative;z-index:1;box-shadow:0 6px 24px rgba(224,16,16,.4)}
+.btn-cta:active{transform:scale(.97)}
+.btn-arrow{width:28px;height:28px;background:rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.stat{text-align:center;padding:18px 8px;border-right:1px solid #e2e8f0}
+.stat:last-child{border-right:none}
+.stat-n{font-size:24px;font-weight:900;color:#1255CC;line-height:1;margin-bottom:4px}
+.stat-l{font-size:11px;color:#6b7c93;font-weight:500}
+
+/* SECTION */
+.sec{padding:36px 20px}
+.sec-title{font-size:21px;font-weight:900;color:#0f1c2e;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.sec-title::before{content:'';display:block;width:4px;height:24px;background:#1255CC;border-radius:4px;flex-shrink:0}
+
+/* ADV CARDS */
+.adv-list{display:flex;flex-direction:column;gap:12px}
+.adv-card{background:#fff;border-radius:14px;padding:18px 18px;display:flex;align-items:flex-start;gap:14px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(18,85,204,.05)}
+.adv-icon{width:48px;height:48px;border-radius:12px;background:#E8F0FE;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.adv-icon svg{width:24px;height:24px;stroke:#1255CC;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.adv-ttl{font-size:16px;font-weight:700;color:#0f1c2e;margin-bottom:4px}
+.adv-desc{font-size:13px;color:#4a5568;line-height:1.55}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:0;position:relative}
+.steps::before{content:'';position:absolute;left:23px;top:28px;bottom:28px;width:2px;background:#e2e8f0;z-index:0}
+.step{display:flex;align-items:flex-start;gap:16px;padding:12px 0;position:relative;z-index:1}
+.step-n{width:48px;height:48px;border-radius:50%;background:#1255CC;color:#fff;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:3px solid #f0f4fa}
+.step-ttl{font-size:16px;font-weight:700;margin-bottom:3px;padding-top:8px}
+.step-desc{font-size:13px;color:#4a5568}
+
+/* URGENCY */
+.urgency{background:#fffbeb;border:1.5px solid #F5C518;border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:center;margin:0 20px 8px}
+.urgency-icon{width:40px;height:40px;background:#F5C518;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.urgency-icon svg{width:22px;height:22px;stroke:#3a2800;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.urgency-text{font-size:14px;color:#3a2800;font-weight:500;line-height:1.55}
+.urgency-text strong{font-weight:900}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:#fff;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden}
+.faq-q{padding:16px 18px;font-size:15px;font-weight:700;color:#0f1c2e;display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.faq-plus{width:24px;height:24px;background:#E8F0FE;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s;color:#1255CC;font-size:18px;line-height:1}
+.faq-item.open .faq-plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:160px}
+.faq-a-inner{padding:0 18px 16px;border-top:1px solid #e2e8f0;font-size:14px;color:#4a5568;line-height:1.65;padding-top:12px}
+
+/* BOTTOM CTA */
+.cta-bottom{background:#0D3E99;padding:36px 24px 44px;text-align:center}
+.cta-bottom h2{font-size:22px;font-weight:900;color:#fff;margin-bottom:6px}
+.cta-bottom p{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:24px}
+.cta-note{font-size:12px;color:rgba(255,255,255,.5);margin-top:14px}
+
+/* FOOTER */
+footer{background:#060f1e;color:rgba(255,255,255,.45);font-size:12px;text-align:center;padding:20px;line-height:1.8}
+footer strong{color:rgba(255,255,255,.7)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-circle1"></div>
+  <div class="hero-circle2"></div>
+  <div class="hero-badge"><div class="dot"></div> 1111人力銀行精選職缺</div>
+  <h1>手機訂單<span>處理人員</span></h1>
+  <p class="hero-sub">想找<strong>高時薪</strong>又不用流汗的工作嗎？<br>在家用手機就能每月穩定賺錢！</p>
+  <div class="hero-feats">
+    <span class="hero-feat">⏱ 時間彈性</span>
+    <span class="hero-feat">📱 手機操作</span>
+    <span class="hero-feat">🏠 在家工作</span>
+    <span class="hero-feat">💰 週週領薪</span>
+  </div>
+  <a href="https://lin.ee/z0MCwZu" class="btn-cta" target="_blank" rel="noopener">
+    立即申請
+    <span class="btn-arrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </span>
+  </a>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">$250+</div><div class="stat-l">時薪起</div></div>
+  <div class="stat"><div class="stat-n">24h</div><div class="stat-l">全時段可接單</div></div>
+  <div class="stat"><div class="stat-n">0門檻</div><div class="stat-l">新手快速上手</div></div>
+</div>
+
+<!-- ADVANTAGES -->
+<section class="sec">
+  <h2 class="sec-title">工作優勢</h2>
+  <div class="adv-list">
+    <div class="adv-card">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="adv-ttl">時間完全彈性</div>
+        <div class="adv-desc">自由安排上班時段，早中晚均可接單，兼顧家庭與生活毫無壓力。</div>
+      </div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      </div>
+      <div>
+        <div class="adv-ttl">不限年齡・新手也能快速上手</div>
+        <div class="adv-desc">18 歲到退休族均歡迎，只需一支手機，系統介面直覺易學。</div>
+      </div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <div class="adv-ttl">完全在家工作・無需通勤</div>
+        <div class="adv-desc">不需打卡、不需交通費，沙發上就是你的辦公室。</div>
+      </div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <div>
+        <div class="adv-ttl">週週結算・現金流穩定</div>
+        <div class="adv-desc">不用等月底，每週可領取報酬，收入即時入帳。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" style="padding-top:0">
+  <h2 class="sec-title">三步驟開始賺錢</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">1</div>
+      <div>
+        <div class="step-ttl">點擊申請按鈕</div>
+        <div class="step-desc">透過 LINE 官方帳號聯繫，30 秒完成報名。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div>
+        <div class="step-ttl">專人帶領教學</div>
+        <div class="step-desc">1 對 1 指導，影片輔助教學，輕鬆掌握操作流程。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div>
+        <div class="step-ttl">開始接單賺取收入</div>
+        <div class="step-desc">最快當天即可開始接單，累積屬於自己的收入。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<div class="urgency">
+  <div class="urgency-icon">
+    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+  </div>
+  <div class="urgency-text"><strong>名額有限，先到先得！</strong><br>本週僅剩最後幾個名額，手慢則無，立即把握機會。</div>
+</div>
+
+<!-- FAQ -->
+<section class="sec">
+  <h2 class="sec-title">常見問題</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">需要什麼設備或資格？<span class="faq-plus">＋</span></div>
+      <div class="faq-a"><div class="faq-a-inner">只需一支能上網的智慧型手機即可。不限學歷、年齡、工作經驗，任何人都可以申請。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">薪資如何計算？何時領薪？<span class="faq-plus">＋</span></div>
+      <div class="faq-a"><div class="faq-a-inner">依訂單數量計算，時薪 $250 起，業績好可更高。採週結制，每週結算直接匯入您的帳戶。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">每天要工作幾個小時？<span class="faq-plus">＋</span></div>
+      <div class="faq-a"><div class="faq-a-inner">完全自由！沒有最低工時要求，可依照自己的時間安排接單，利用碎片時間也能賺錢。</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">完全沒有經驗可以嗎？<span class="faq-plus">＋</span></div>
+      <div class="faq-a"><div class="faq-a-inner">完全沒問題！加入後有專屬教學和 1 對 1 客服指導，新手保證快速上手，通常 1 天內即可開始接單。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-bottom">
+  <h2>準備好開始了嗎？</h2>
+  <p>名額有限，立即申請，把握機會！</p>
+  <a href="https://lin.ee/z0MCwZu" class="btn-cta" target="_blank" rel="noopener">
+    🔥 名額有限！立即申請
+    <span class="btn-arrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </span>
+  </a>
+  <p class="cta-note">點擊後將透過 LINE 與專人聯繫，免費諮詢無壓力</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>1111人力銀行</strong> &nbsp;www.1111.com.tw<br>
+  © 2026 1111人力銀行 All Rights Reserved.
+</footer>
+
+<script>
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>
